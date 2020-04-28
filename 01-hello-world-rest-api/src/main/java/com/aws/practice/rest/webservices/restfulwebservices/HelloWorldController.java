@@ -1,14 +1,21 @@
-package com.in28minutes.rest.webservices.restfulwebservices;
+package com.aws.practice.rest.webservices.restfulwebservices;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.aws.practice.rest.services.RestService;
+
 @RestController
 public class HelloWorldController {
-
+	
+	@Autowired
+	RestService restService;
 	@GetMapping(path = "/hello-world")
 	public String helloWorld() {
+		restService.foo();
+		restService.bar();
 		return "Hello World";
 	}
 
